@@ -1,0 +1,117 @@
+-- Data for table `inventory`
+
+INSERT INTO public.inventory (
+    inv_make,
+    inv_model,
+    inv_year,
+    inv_description,
+    inv_image,
+    inv_thumbnail,
+    inv_price,
+    inv_miles,
+    inv_color,
+    make_id
+  )
+VALUES (
+    'Chevrolet',
+    'Camaro Redline Edition',
+    '2024',
+    'The Redline Edition puts maximum street style and energy on display. Available on LT, LT1 and SS with Summit White',
+    '/images/vehicles/2024-camaro-9v2.jpg',
+    '/images/vehicles/2024-camaro-9v2-tn.jpg',
+    55000,
+    0,
+    'White',
+    1
+  ), (
+    'Chevrolet',
+    'Camaro LT Fifty Edition 3.6L V6',
+    '2017',
+    'If you want an authentic modern-day muscle car, the Camaro hits many of the right notes and it’s a more compelling overall package than a Mustang',
+    '/images/vehicles/2017-camaro.jpg',
+    '/images/vehicles/2017-camaro-tn.jpg',
+    28495,
+    44300,
+    'White',
+    1
+  ), (
+    'Ford',
+    'Mustang GT Premium Fastback',
+    '2024',
+    'Hear the growl. Feel the g-forces. Smell the burnouts. The 2024 Mustang lineup offers powerful engines to give you a truly visceral driving experience around every corner — and on each straightaway.',
+    '/images/vehicles/2024-mustang.jpg',
+    '/images/vehicles/2024-mustang-tn.jpg',
+    46450,
+    0,
+    'Grabber Blue Metallic',
+    2
+  ), (
+    'Chevrolet',
+    'Corvette Stingray 1LT RWD',
+    '2024',
+    'This beautifully sculpted mid-engine masterpiece has a presence that’s impossible to ignore. With razor-sharp aerodynamics and details designed to perfection, the eighth-generation Corvette pushes its legacy to the highest point ever.',
+    '/images/vehicles/2024-stingray.jpg',
+    '/images/vehicles/2024-stingray-tn.jpg',
+    72298,
+    0,
+    'Riptide Blue Metallic',
+    1
+  ), (
+    'Chevrolet',
+    'Corvette Stingray 6.2 2dr',
+    '2016',
+    'Stunning 2016 (16) Chevrolet Corvette Stingray C7 LT3 with 7 speed automatic gearbox. Finished in Metallic Grey with Full Tan Leather Interior. Only 15200 miles from new. Full Service History, Imported from America with all relevant documentation including original window sticker and clear car fax on point of export.',
+    '/images/vehicles/2016-stingray.jpg',
+    '/images/vehicles/2016-stingray-tn.jpg',
+    48000,
+    15200,
+    'Grey Metallic',
+    1
+  ), (
+    'Dodge',
+    'Challenger GT',
+    '2023',
+    'Unlock your Dodge Brand muscle car''s full performance potential or build your dream race car with available factory-backed Direct Connection performance parts.',
+    '/images/vehicles/2023-dodge-challenger-gt.jpg',
+    '/images/vehicles/2023-dodge-challenger-gt-tn.jpg',
+    36100,
+    0,
+    'TorRed',
+    3
+  ), (
+    'Dodge',
+    'Charger Scat Pack',
+    '2023',
+    'From its menacing grill to its iconic side styling, the 2023 Dodge Charger has kept the attention of everyone on the road for years. Its exterior matches the strength underneath, built to put on a show of pure muscle, inside and out.',
+    '/images/vehicles/2023-charger-scat-pack.jpg',
+    '/images/vehicles/2023-charger-scat-pack-tn.jpg',
+    53915,
+    0,
+    'Go Mango',
+    3
+  ), (
+    'Ford',
+    'Mustang 2.3T EcoBoost Fastback',
+    '2016',
+    'For sale Mustang 2016, 31.200 mileage, ENGINE 2.3 -317 bhp. Full service history. Fresh MOT, full service done: performance engine oil and K&N air filter. 4 new tires and 4x spark plugs replaced. The car is in perfect condition and looks like new, no scratches or dents. After polishing and ceramic coating.',
+    '/images/vehicles/2016-ford-mustang.jpg',
+    '/images/vehicles/2016-ford-mustang-tn.jpg',
+    16000,
+    31320,
+    'Deep Blue',
+    2
+  ), (
+    'Ford',
+    'Mustang 5.0 V8 Mach 1 Fastback Tremec Euro 6 2dr',
+    '2022',
+    'This is the first in the UK, it’s a Mustang 5.0 V8 Mach 1 Fastback Tremec. It’s a complete weopon, 500 bhp with every Steeda race part upgrade to make it handle like intended, a race car. No longer does it feel 1750kg, it feels light and nimble and sounds absolutely insane!',
+    '/images/vehicles/2022-ford-mustang.jpg',
+    '/images/vehicles/2022-ford-mustang-tn.jpg',
+    48990,
+    8502,
+    'Grey',
+    2
+  );
+
+
+  
