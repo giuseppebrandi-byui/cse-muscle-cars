@@ -34,10 +34,11 @@ Util.getNav = async function (req, res, next) {
 }
 
 /* **************************************
-* Build the classification view HTML
+* Build the make view HTML
 * ************************************ */
 Util.buildMakeGrid = async function(data){
   let grid;
+  console.log(data.length);
   if(data.length > 0){
     grid = '<ul id="inv-display">'
     data.forEach(vehicle => { 

@@ -13,15 +13,15 @@ async function getMakes(){
 async function getInventoryByMakeId(make_id) {
   try {
     const data = await pool.query(
-      `SELECT * FROM public.inventory AS i
-      JOIN public.make AS c
-      ON i.make_id = c.make_id
+      `SELECT * FROM public.inventory AS i 
+      JOIN public.make AS c 
+      ON i.make_id = c.make_id 
       WHERE i.make_id = $1`,
       [make_id]
     )
-    return data.rows;
-  } catch (error) { 
-    console.error("getmakesbyid error " + error);
+    return data.rows
+  } catch (error) {
+    console.error("getmakesbyid error " + error)
   }
 }
 

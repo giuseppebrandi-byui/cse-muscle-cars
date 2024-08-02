@@ -4,7 +4,7 @@ const utilities = require("../utilities/");
 const invCont = {};
 
 /* ***************************
- *  Build inventory by maker view
+ *  Build inventory by make view
  * ************************** */
 invCont.buildByMakeId = async function (req, res, next) {
   const make_id = req.params.makeId;
