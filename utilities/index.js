@@ -6,7 +6,6 @@ const Util = {};
  ************************** */
 Util.getNav = async function (req, res, next) {
   let data = await invModel.getMakes();
-  console.log(data);
   let list = "<ul class='nav__list'>";
   list += '<li><a href="/" class="nav__link" title="Home page">Home</a></li>';
   list += '<li><a href="#" class="nav__link" title="About page">About</a></li>';
@@ -38,7 +37,6 @@ Util.getNav = async function (req, res, next) {
 * ************************************ */
 Util.buildMakeGrid = async function(data){
   let grid;
-  console.log(data.length);
   if(data.length > 0){
     grid = '<ul id="inv-display">'
     data.forEach(vehicle => { 
