@@ -643,21 +643,21 @@ body {
 
 
 /*-----------------------------------*\
-  #WORK
+  #NEW CARS
 \*-----------------------------------*/
-.work .container {
+.new-cars .container {
   padding-inline: 0;
 }
 
-.work .section-title {
+.new-cars .section-title {
   margin-block-end: 24px;
 }
 
-.work-card {
+.new-cars-card {
   position: relative;
 }
 
-.work-card .card-content {
+.new-cars-card .card-content {
   background-color: var(--white);
   max-width: 90%;
   padding: 30px 10px;
@@ -668,7 +668,7 @@ body {
   box-shadow: var(--shadow);
 }
 
-.work-card .card-subtitle {
+.new-cars-card .card-subtitle {
   font-family: var(--ff-chakra-petch);
   text-transform: uppercase;
   color: var(--international-orange-engineering);
@@ -676,11 +676,11 @@ body {
   margin-block-end: 5px;
 }
 
-.work-card .card-title {
+.new-cars-card .card-title {
   margin-block-end: 10px;
 }
 
-.work-card .card-btn {
+.new-cars-card .card-btn {
   background-color: var(--international-orange-engineering);
   color: var(--white);
   font-size: 2rem;
@@ -775,6 +775,15 @@ body {
   font-size: var(--fs-6);
 }
 
+.page-404 {
+  padding-block: var(--section-padding);
+  text-align: center;
+}
+
+.page-404 img {
+  margin: 3rem auto;
+}
+
 
 /*-----------------------------------*\
   #MEDIA QUERIES
@@ -849,7 +858,7 @@ body {
   }
 
   /**
-   * Work
+   * New Cars
   */
   .scrollbar-item {
     min-width: calc(50% - 15px);
@@ -1096,7 +1105,7 @@ body {
   }
 
   /**
-   * Work
+   * New Cars
   */
   .has-scrollbar {
     overflow-x: visible;
@@ -1198,9 +1207,9 @@ body {
   }
 
   /**
-   * Work
+   * New Cars
   */
-  .work-card .card-btn {
+  .new-cars-card .card-btn {
     font-size: 2.4rem;
     width: 55px;
     height: 55px;
