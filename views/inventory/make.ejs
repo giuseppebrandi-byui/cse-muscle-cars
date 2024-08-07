@@ -1,9 +1,13 @@
 <% if (title) { %>
-  <h1>
-    <%= title %>
-  </h1>
-  <% } else { res.redirect('/') } %>
+  <section class="section new-cars" aria-labelledby="new-cars-label">
+    <div class="container">
+      <p class="section-subtitle :light" id="new-cars-label">Latest Cars</p>
+      <h2 class="h2 section-title">
+        <%= title %>
+      </h2>
+      <% } else { res.redirect('/') } %>
 
-    <%# messages() %>
-
-      <%- grid %>
+        <%# messages() %>
+          <%- grid %>
+    </div>
+  </section>

@@ -352,6 +352,17 @@ body {
   opacity: 0;
 }
 
+.info-vehicle {
+  display: flex;
+  font-family: var(--ff-chakra-petch);
+  text-transform: uppercase;
+  font-weight: var(--fw-700);
+  justify-content: space-between;
+  color: var(--eerie-black);
+  padding: 10px 2px;
+}
+
+
 @media screen and (max-width: 1118px) {
   .nav__menu {
     position: absolute;
@@ -524,6 +535,15 @@ body {
 
 
 /*-----------------------------------*\
+  # CARS SECTION
+\*-----------------------------------*/
+.grid {
+  display: grid;
+  gap: 3rem;
+}
+
+
+/*-----------------------------------*\
   #HERO
 \*-----------------------------------*/
 .hero {
@@ -690,6 +710,13 @@ body {
   display: grid;
   place-items: center;
   border-radius: var(--radius-circle);
+}
+
+/**
+  * Our Cars
+*/
+.grid--1-cols {
+  grid-template-columns: 1fr;
 }
 
 
@@ -974,6 +1001,13 @@ body {
     --fs-6: 1.4rem;
   }
 
+   /**
+   * Our Cars
+  */
+  .grid--2-cols {
+    grid-template-columns: 1fr 1fr;
+  }
+
 }
 
 @media (min-width: 992px) {
@@ -1114,6 +1148,13 @@ body {
   .scrollbar-item {
     min-width: calc(33.33% - 20px);
   }
+
+/**
+  * Our Cars
+*/
+.grid--3-cols {
+  grid-template-columns: 1fr 1fr 1fr;
+}
 
 }
 

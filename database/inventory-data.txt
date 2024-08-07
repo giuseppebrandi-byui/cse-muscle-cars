@@ -14,7 +14,7 @@ INSERT INTO public.inventory (
   )
 VALUES (
     'Chevrolet',
-    'Camaro Redline Edition',
+    'Camaro Redline Edition LT1',
     '2024',
     'The Redline Edition puts maximum street style and energy on display. Available on LT, LT1 and SS with Summit White',
     '/images/vehicles/2024-camaro-9v2.jpg',
