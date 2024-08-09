@@ -271,6 +271,11 @@ body {
   object-fit: cover;
 }
 
+.vehicle-img {
+  width: 100%;
+  height: auto;
+}
+
 .has-scrollbar {
   display: flex;
   align-items: center;
@@ -719,6 +724,30 @@ body {
   grid-template-columns: 1fr;
 }
 
+/**
+  * Vehicle Section
+*/
+.vehicle-title {
+  font-family: var(--ff-chakra-petch);
+  font-weight: var(--fw-600);
+  text-transform: uppercase;
+  font-size: 3.2rem;
+  color: var(--eerie-black);
+  line-height: 1.2;
+  margin-bottom: 2.4rem;
+}
+
+.info-text {
+  font-size: var(--fs-4);
+  margin-bottom: 1.6rem;
+}
+
+.label {
+  display: inline;
+  font-size: var(--fs-4);
+  font-weight: var(--fw-600);
+}
+
 
 /*-----------------------------------*\
   #FOOTER
@@ -1054,7 +1083,8 @@ body {
     margin-inline: 0;
   }
 
-  .hero .section-title {
+  .hero .section-title,
+  .vehicle-title {
     text-align: left;
   }
 
