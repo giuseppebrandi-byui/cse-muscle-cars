@@ -22,6 +22,7 @@ async function getInventoryByMakeId(make_id) {
     return data.rows
   } catch (error) {
     console.error("getmakesbyid error " + error)
+    throw new Error(error)
   }
 }
 

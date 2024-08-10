@@ -13,6 +13,7 @@ async function getVehicleById(inv_id) {
     return dataVehicle.rows[0];
   } catch (error) { 
     console.error("getVehicleById error " + error);
+    throw new Error(error)
   }
 }
 
