@@ -26,4 +26,22 @@ async function getInventoryByMakeId(make_id) {
   }
 }
 
-module.exports = {getMakes, getInventoryByMakeId}
+
+/* ***************************
+ *  Get all inventory items and make_name by inv_year
+ * ************************** */
+async function getNewestInventoryByYear(inv_year) {
+  try {
+    const data = await pool.query(
+      `SELECT * FROM public.inventory AS i 
+      WHERE i.inv_year = $1;`,
+      [inv_year]
+    )
+    return data.rows
+  } catch (error) {
+    console.error("getmakesbyyear error " + error)
+    throw new Error(error)
+  }
+}
+
+module.exports = {getMakes, getInventoryByMakeId, getNewestInventoryByYear}
