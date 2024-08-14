@@ -9,7 +9,7 @@ async function getVehicleById(inv_id) {
       "SELECT * FROM public.inventory WHERE inv_id = $1",
       [inv_id]
     );
-    console.log(dataVehicle.rows[0]);
+    // console.log(dataVehicle.rows[0]);
     return dataVehicle.rows[0];
   } catch (error) { 
     console.error("getVehicleById error " + error);

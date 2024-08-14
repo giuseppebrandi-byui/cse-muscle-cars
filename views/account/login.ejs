@@ -1,0 +1,12 @@
+<section class="section login" aria-labelledby="new-cars-label">
+  <div class="container">
+    <% if (title) { %>
+      <h1 class="h2 section-title">
+        <%= title %>
+      </h1>
+
+      <% } else { res.redirect('/') } %>
+
+        <%- messages() %>
+  </div>
+</section>
