@@ -28,6 +28,7 @@ Util.getNav = async function (req, res, next) {
   list += "</ul>";
   list += '<li><a href="#" class="nav__link" title="Services page">Services</a></li>';
   list += '<li><a href="#" class="nav__link" title="Contact page">Contact</a></li>';
+  list += '<li><a href="/account/login" class="nav__link" title="Click to log in">My Account</a></li>';
   list += '</ul>';
   return list;
 }
@@ -147,10 +148,6 @@ Util.buildSingleVehiclePage = async function (vehicle, locals = null) {
   carDetailsGrid += '</div>'; // Close info section
  
   carDetailsGrid += "</div>"; // close grid section
-
-  // carDetailsGrid += '<a href="../../inv/detail/' + vehicle.inv_id + '" title="View ' + vehicle.inv_make + " " +
-  //   vehicle.inv_model + 'details"><img src="' + vehicle.inv_image + '" alt="Image of ' + vehicle.inv_make + " " +
-  //   vehicle.inv_model + ' on CSE Motors" /></a>';
 
   return carDetailsGrid;
 };
