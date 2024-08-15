@@ -1,10 +1,26 @@
-<section class="section login" aria-labelledby="new-cars-label">
-  <div class="container">
+<section class="section login" aria-labelledby="login-label">
+  <div class="container login-container">
     <% if (title) { %>
-      <h1 class="h2 section-title">
-        <%= title %>
-      </h1>
-
+      <div class="login-form">
+        <h1 class="h2 section-title">
+          <%= title %>
+        </h1>
+        <form action="">
+          <div class="input-group">
+            <label for="email">Email*</label>
+            <input type="email" name="account_email" id="email" required>
+          </div>
+          <div class="input-group">
+            <label for="password">Password*</label>
+            <input type="password" name="account_password" id="password" required>
+          </div>
+          <a href="#" class="btn btn-login">
+            <span class="span">Login</span>
+            <span class="material-symbols-rounded">arrow_forward</span>
+          </a>
+          <p class="test">No account? <a class="underline" href="/account/register">Sign-up</a></p>
+        </form>
+      </div>
       <% } else { res.redirect('/') } %>
 
         <%- messages() %>
