@@ -901,14 +901,36 @@ body {
 
 .btn-login,
 .btn-register {
-  max-width: none;
   margin: 30px 0;
-  justify-content: center;
+  display: initial;
+  width: 100%;
+  max-width: initial;
+  font-size: 1.6rem;
 }
 
 .underline {
   text-decoration: underline;
 }
+
+#messages {
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background-color: var(--oxford-blue-3);
+  color: var(--white);
+  width: max-content;
+}
+
+/* .input-group input:required:invalid, .input-group input:focus:invalid {
+ 
+  background-color: red;
+}
+
+.input-group input:required:valid {
+
+  background-color: green;
+} */
 
 /*-----------------------------------*\
   #MEDIA QUERIES
