@@ -5,7 +5,7 @@ const validate = {}
 /*  **********************************
   *  Registration Data Validation Rules
   * ********************************* */
-  validate.registationRules = () => {
+  validate.registrationRules = () => {
     return [
       // firstname is required and must be string
       body("account_firstname")
@@ -45,4 +45,29 @@ const validate = {}
         })
         .withMessage("Password does not meet requirements."),
     ]
+}
+  
+
+/* ******************************
+ * Check data and return errors or continue to registration
+ * ***************************** */
+validate.checkRegData = async (req, res, next) => {
+  const { account_firstname, account_lastname, account_email } = req.body
+  let errors = []
+  errors = validationResult(req)
+  if (!errors.isEmpty()) {
+    let nav = await utilities.getNav()
+    res.render("account/register", {
+      errors,
+      title: "Registration",
+      nav,
+      account_firstname,
+      account_lastname,
+      account_email,
+    })
+    return
   }
+  next()
+}
+
+module.exports = validate
