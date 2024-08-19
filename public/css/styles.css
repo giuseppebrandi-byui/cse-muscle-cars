@@ -896,7 +896,7 @@ body {
 }
 
 .input-group input:focus {
-  background-color: #fff;
+  background-color: var(--white);
 }
 
 .btn-login,
@@ -912,7 +912,8 @@ body {
   text-decoration: underline;
 }
 
-#messages {
+#messages,
+.notice {
   margin: 0 auto;
   text-align: center;
   margin-bottom: 2rem;
@@ -922,15 +923,17 @@ body {
   width: max-content;
 }
 
-/* .input-group input:required:invalid, .input-group input:focus:invalid {
- 
-  background-color: red;
+.input-group input:required:invalid {
+  background-image: url(../images/site/checkbox-error.png);
+  background-position: right center;
+  background-repeat: no-repeat;
 }
 
 .input-group input:required:valid {
-
-  background-color: green;
-} */
+ background-image: url(../images/site/checkbox-pass.png);
+ background-position: right center;
+ background-repeat: no-repeat;
+}
 
 /*-----------------------------------*\
   #MEDIA QUERIES
