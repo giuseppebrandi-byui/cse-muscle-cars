@@ -1,4 +1,4 @@
-<section class="section login" aria-labelledby="login-label">
+<section class="section" aria-labelledby="login-label">
   <% if (messagesAddMake) { %>
     <ul class="notice">
       <li>
@@ -17,13 +17,13 @@
         </ul>
         <% } %>
 
-          <div class="container login-container">
+          <div class="container add-make-container">
             <% if (title) { %>
-              <div class="login-form">
+              <div class="add-make-form">
                 <h1 class="h2 section-title">
                   <%= title %>
                 </h1>
-                <form id="login-form" action="/inv/add-make" method="post">
+                <form id="add-make-form" action="/inv/add-make" method="post">
                   <div class="input-group">
                     <label for="addMake">Make*</label>
                     <p>Add make name with no space between words</p>

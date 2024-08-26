@@ -1,4 +1,4 @@
-<section class="section new-cars" aria-labelledby="new-cars-label">
+<section class="section" aria-labelledby="management-label">
   <%- messages() %>
 
     <% if (errors) { %>
@@ -11,24 +11,24 @@
       </ul>
       <% } %>
 
-        <div class="container">
+        <div class="container btn-box-container">
           <% if (title) { %>
-            <p class="section-subtitle :light" id="new-cars-label">Management View</p>
-            <h2 class="h2 section-title">
-              <%= title %>
-            </h2>
+            <div class="btn-box">
 
-            <a href="/inv/add-make" class="btn">
-              <span class="span">Add New Make</span>
+              <h1 class="h2 section-title">
+                <%= title %>
+              </h1>
 
-              <span class="material-symbols-rounded">arrow_forward</span>
-            </a>
-            <hr>
-            <a href="/inv/add-inventory" class="btn">
-              <span class="span">Add New Vehicle</span>
+              <div class="btn-spacer">
+                <a href="/inv/add-make" class="btn-add-make">
+                  <span class="span">Add New Make</span>
+                </a>
+                <a href="/inv/add-inventory" class="btn-add-car">
+                  <span class="span">Add New Vehicle</span>
+                </a>
+              </div>
 
-              <span class="material-symbols-rounded">arrow_forward</span>
-            </a>
+            </div>
 
             <% } else { res.redirect('/') } %>
 
