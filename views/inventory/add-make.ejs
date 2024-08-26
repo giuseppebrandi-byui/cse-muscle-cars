@@ -1,36 +1,40 @@
 <section class="section login" aria-labelledby="login-label">
-  <% if (messagesCar) { %>
-    <%- messagesCar %>
-      <% } %>
+  <% if (messagesAddMake) { %>
+    <ul class="notice">
+      <li>
+        <%- messagesAddMake %>
+      </li>
+    </ul>
+    <% } %>
 
-        <% if (errors) { %>
-          <ul class="notice">
-            <% errors.array().forEach(error=> { %>
-              <li>
-                <%= error.msg %>
-              </li>
-              <% }) %>
-          </ul>
-          <% } %>
+      <% if (errors) { %>
+        <ul class="notice">
+          <% errors.array().forEach(error=> { %>
+            <li>
+              <%= error.msg %>
+            </li>
+            <% }) %>
+        </ul>
+        <% } %>
 
-            <div class="container login-container">
-              <% if (title) { %>
-                <div class="login-form">
-                  <h1 class="h2 section-title">
-                    <%= title %>
-                  </h1>
-                  <form id="login-form" action="/inv/add-make" method="post">
-                    <div class="input-group">
-                      <label for="addMake">Make*</label>
-                      <p>Add make name with no space between words</p>
-                      <br>
-                      <input type="text" name="make_name" id="addMake" placeholder="Enter a make" pattern="^[A-Za-z]*$"
-                        required value="<%= locals.make_name %>">
-                    </div>
-                    <input type="submit" value="Add Make" class="btn btn-login" />
-                  </form>
-                </div>
-                <% } else { res.redirect('/') } %>
+          <div class="container login-container">
+            <% if (title) { %>
+              <div class="login-form">
+                <h1 class="h2 section-title">
+                  <%= title %>
+                </h1>
+                <form id="login-form" action="/inv/add-make" method="post">
+                  <div class="input-group">
+                    <label for="addMake">Make*</label>
+                    <p>Add make name with no space between words</p>
+                    <br>
+                    <input type="text" name="make_name" id="addMake" placeholder="Enter a make" pattern="^[A-Za-z]*$"
+                      required value="<%= locals.make_name %>">
+                  </div>
+                  <input type="submit" value="Add Make" class="btn btn-login" />
+                </form>
+              </div>
+              <% } else { res.redirect('/') } %>
 
-            </div>
+          </div>
 </section>

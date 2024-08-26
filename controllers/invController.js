@@ -16,6 +16,7 @@ invCont.buildByMakeId = async function (req, res, next) {
     res.render("./inventory/make", {
       title: makeName + " vehicles",
       nav,
+      errors: null,
       grid,
     })
   } catch (err) { 
@@ -44,7 +45,7 @@ invCont.buildAddMakeView = async function (req, res, next) {
     title: "Add Make",
     nav,
     errors: null,
-    messagesCar: null,
+    messagesAddMake: null,
   });
 }
 
@@ -65,7 +66,7 @@ invCont.addMakeToDatabase = async function (req, res) {
     title: "Add Make",
     nav,
     errors: null,
-    messagesCar: "The new make has been added."
+    messagesAddMake: `Congratulations, you have added ${make_name} to the database.`
   })
 }
 
