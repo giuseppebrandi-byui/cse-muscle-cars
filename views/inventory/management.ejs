@@ -1,0 +1,38 @@
+<section class="section new-cars" aria-labelledby="new-cars-label">
+  <%- messages() %>
+
+    <% if (errors) { %>
+      <ul class="notice">
+        <% errors.array().forEach(error=> { %>
+          <li>
+            <%= error.msg %>
+          </li>
+          <% }) %>
+      </ul>
+      <% } %>
+
+        <div class="container">
+          <% if (title) { %>
+            <p class="section-subtitle :light" id="new-cars-label">Management View</p>
+            <h2 class="h2 section-title">
+              <%= title %>
+            </h2>
+
+            <a href="/inv/add-make" class="btn">
+              <span class="span">Add New Make</span>
+
+              <span class="material-symbols-rounded">arrow_forward</span>
+            </a>
+            <hr>
+            <a href="/inv/add-inventory" class="btn">
+              <span class="span">Add New Vehicle</span>
+
+              <span class="material-symbols-rounded">arrow_forward</span>
+            </a>
+
+            <% } else { res.redirect('/') } %>
+
+              <%# messages() %>
+                <%# grid %>
+        </div>
+</section>

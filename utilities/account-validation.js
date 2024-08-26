@@ -78,7 +78,7 @@ validate.checkRegData = async (req, res, next) => {
 /*  **********************************
   *  Login Data Validation Rules
   * ********************************* */
-  validate.LoginRules = () => {
+  validate.loginRules = () => {
     return [
       // valid email is required
       body("account_email")

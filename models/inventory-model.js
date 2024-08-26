@@ -26,6 +26,22 @@ async function getInventoryByMakeId(make_id) {
   }
 }
 
+/* ***************************
+ *  Insert new make into database
+ * ************************** */
+async function addMakeToDatabase(make_name) { 
+  try {
+    const data = await pool.query(
+      `INSERT INTO public.make(make_name) VALUES ($1) RETURNING *`,
+      [make_name]
+    )
+    return data.rows
+  } catch (error) { 
+    console.error("getNewMake error " + error)
+    throw new Error(error)
+  }
+}
+
 
 /* ***************************
  *  Get all inventory items and make_name by inv_year
@@ -44,4 +60,4 @@ async function getNewestInventoryByYear(inv_year) {
   }
 }
 
-module.exports = {getMakes, getInventoryByMakeId, getNewestInventoryByYear}
+module.exports = {getMakes, getInventoryByMakeId, getNewestInventoryByYear, addMakeToDatabase}

@@ -1,28 +1,39 @@
 <section class="section login" aria-labelledby="login-label">
   <%- messages() %>
-    <div class="container login-container">
-      <% if (title) { %>
-        <div class="login-form">
-          <h1 class="h2 section-title">
-            <%= title %>
-          </h1>
-          <form id="login-form" action="/account/login" method="post">
-            <div class="input-group">
-              <label for="email">Email*</label>
-              <input type="email" name="account_email" id="email" placeholder="Enter a valid email address"
-                pattern="^[\w\d\.]+@([\w\d\.])+\.+[\w]{2,4}$" autocomplete="off" required
-                value="<%= locals.account_email %>">
-            </div>
-            <div class="input-group">
-              <label for="password">Password*</label>
-              <input type="password" name="account_password" id="password" placeholder="Enter your password"
-                pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z\s\d])(?!.*\s).{12,}$" required>
-            </div>
-            <input type="submit" value="Login" class="btn btn-login" />
-            <p class="test">No account? <a class="underline" href="/account/register">Sign-up</a></p>
-          </form>
-        </div>
-        <% } else { res.redirect('/') } %>
 
-    </div>
+    <% if (errors) { %>
+      <ul class="notice">
+        <% errors.array().forEach(error=> { %>
+          <li>
+            <%= error.msg %>
+          </li>
+          <% }) %>
+      </ul>
+      <% } %>
+
+        <div class="container login-container">
+          <% if (title) { %>
+            <div class="login-form">
+              <h1 class="h2 section-title">
+                <%= title %>
+              </h1>
+              <form id="login-form" action="/account/login" method="post">
+                <div class="input-group">
+                  <label for="email">Email*</label>
+                  <input type="email" name="account_email" id="email" placeholder="Enter a valid email address"
+                    pattern="^[\w\d\.]+@([\w\d\.])+\.+[\w]{2,4}$" autocomplete="off" required
+                    value="<%= locals.account_email %>">
+                </div>
+                <div class="input-group">
+                  <label for="password">Password*</label>
+                  <input type="password" name="account_password" id="password" placeholder="Enter your password"
+                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z\s\d])(?!.*\s).{12,}$" required>
+                </div>
+                <input type="submit" value="Login" class="btn btn-login" />
+                <p class="test">No account? <a class="underline" href="/account/register">Sign-up</a></p>
+              </form>
+            </div>
+            <% } else { res.redirect('/') } %>
+
+        </div>
 </section>

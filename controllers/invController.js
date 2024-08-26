@@ -23,4 +23,50 @@ invCont.buildByMakeId = async function (req, res, next) {
   }
 } 
 
+/* ****************************************
+*  Deliver management view
+* *************************************** */
+invCont.buildManagementView = async function (req, res, next) {
+  let nav = await utilities.getNav();
+  res.render("inventory/management", {
+    title: "Management View",
+    nav,
+    errors: null,
+  });
+}
+
+/* ****************************************
+*  Deliver add make view
+* *************************************** */
+invCont.buildAddMakeView = async function (req, res, next) {
+  let nav = await utilities.getNav();
+  res.render("inventory/add-make", {
+    title: "Add Make",
+    nav,
+    errors: null,
+    messagesCar: null,
+  });
+}
+
+
+/* ****************************************
+*  Add Make Process
+* *************************************** */
+
+invCont.addMakeToDatabase = async function (req, res) { 
+  let nav = await utilities.getNav();
+  const { make_name } = req.body;
+  try {
+    const addResult = await invModel.addMakeToDatabase(make_name);
+  } catch (error) { 
+    throw new Error(error, "Something went wrong with the database add operation");
+  }
+  res.render("inventory/add-make", {
+    title: "Add Make",
+    nav,
+    errors: null,
+    messagesCar: "The new make has been added."
+  })
+}
+
 module.exports = invCont;
