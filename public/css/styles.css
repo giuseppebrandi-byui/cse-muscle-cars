@@ -860,6 +860,7 @@ body {
 .login-container,
 .register-container,
 .add-make-container,
+.add-inventory-container,
 .btn-box-container {
   position: relative;
   width: 100%;
@@ -872,6 +873,7 @@ body {
 .login-form,
 .register-form,
 .add-make-form,
+.add-inventory-form,
 .btn-box {
   padding: 40px;
   border-radius: 15px;
@@ -888,7 +890,8 @@ body {
 
 .login-form h1,
 .register-form h1,
-.add-make-form h1 {
+.add-make-form h1,
+.add-inventory-form h1 {
   margin-bottom: 30px;
 }
 
@@ -907,7 +910,8 @@ body {
   margin-block-end: 5px;
 }
 
-.input-group input {
+.input-group input,
+.input-group select {
   width: 100%;
   padding: 15px;
   border: none;
