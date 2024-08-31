@@ -42,6 +42,40 @@ async function addMakeToDatabase(make_name) {
   }
 }
 
+/* ***************************
+ *  Insert new make into database
+ * ************************** */
+async function addNewInventoryToDatabase(
+    inv_make,
+    inv_model,
+    inv_description,
+    inv_image,
+    inv_thumbnail,
+    inv_price,
+    inv_year,
+    inv_miles,
+    inv_color) { 
+  try {
+    const data = await pool.query(
+      `INSERT INTO public.inventory(
+        inv_make,
+        inv_model,
+        inv_description,
+        inv_image,
+        inv_thumbnail,
+        inv_price,
+        inv_year,
+        inv_miles,
+        inv_color) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *`,
+      [inv_make, inv_model, inv_description, inv_image, inv_thumbnail, inv_price, inv_year, inv_miles, inv_color]
+    )
+    return data.rows
+  } catch (error) { 
+    console.error("getNewAddedInventory error " + error)
+    throw new Error(error)
+  }
+}
+
 
 /* ***************************
  *  Get all inventory items and make_name by inv_year
@@ -60,4 +94,18 @@ async function getNewestInventoryByYear(inv_year) {
   }
 }
 
-module.exports = {getMakes, getInventoryByMakeId, getNewestInventoryByYear, addMakeToDatabase}
+/* ****************************************
+ *   Check for existing make name
+ * ************************************* */
+async function checkExistingMakeName(make_name) { 
+  try {
+    const sql = "SELECT * FROM make WHERE make_name = $1";
+    const make = await pool.query(sql, [make_name]);
+    return make.rowCount;
+  } catch (error) { 
+    return error.message;
+  }
+}
+
+
+module.exports = {getMakes, getInventoryByMakeId, getNewestInventoryByYear, addMakeToDatabase, checkExistingMakeName, addNewInventoryToDatabase}
