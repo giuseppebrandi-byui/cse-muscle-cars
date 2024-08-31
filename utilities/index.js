@@ -121,7 +121,6 @@ Util.buildSingleVehiclePage = async function (vehicle, locals = null) {
   carDetailsGrid += '</figure>';
 
   carDetailsGrid += '<div>'; // Info section
-  // carDetailsGrid += '<h2>' + vehicle.inv_make + " " + vehicle.inv_model + '</h2>';
   carDetailsGrid += '<p class="info-text">';
   carDetailsGrid += '<span class="label">Price:</span> ' + "$" + new Intl.NumberFormat("en-US").format(vehicle.inv_price);
   carDetailsGrid += '</p>';
@@ -151,6 +150,25 @@ Util.buildSingleVehiclePage = async function (vehicle, locals = null) {
 
   return carDetailsGrid;
 };
+
+Util.buildMakeList = async function (make_id = null) {
+    let data = await invModel.getMakes()
+    let makeList =
+      '<select name="make_id" id="makeList" required>'
+    makeList += "<option value=''>Select Make</option>"
+    data.rows.forEach((row) => {
+      makeList += '<option value="' + row.make_id + '"'
+      if (
+        make_id != null &&
+        row.make_id == make_id
+      ) {
+        makeList += " selected "
+      }
+      makeList += ">" + row.make_name + "</option>"
+    })
+    makeList += "</select>"
+  return makeList;
+  }
 
 
 /* ****************************************
