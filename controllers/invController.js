@@ -29,9 +29,11 @@ invCont.buildByMakeId = async function (req, res, next) {
 * *************************************** */
 invCont.buildManagementView = async function (req, res, next) {
   let nav = await utilities.getNav();
+  // const selectMenu = await utilities.buildMakeList();
   res.render("inventory/management", {
     title: "Management View",
     nav,
+    // selectMenu,
     errors: null,
   });
 }
@@ -49,17 +51,30 @@ invCont.buildAddMakeView = async function (req, res, next) {
   });
 }
 
+/* ****************************************
+*  Deliver add make view
+* *************************************** */
+invCont.buildAddInventoryView = async function (req, res, next) {
+  let nav = await utilities.getNav();
+  // const selectMenu = await utilities.buildMakeList();
+  res.render("inventory/add-inventory", {
+    title: "Add New Vehicle",
+    nav,
+    // selectMenu,
+    errors: null,
+  });
+}
+
 
 /* ****************************************
 *  Add Make Process
 * *************************************** */
-
-invCont.addMakeToDatabase = async function (req, res) { 
+invCont.addMakeToDatabase = async function (req, res) {
   let nav = await utilities.getNav();
   const { make_name } = req.body;
   try {
     const addResult = await invModel.addMakeToDatabase(make_name);
-  } catch (error) { 
+  } catch (error) {
     throw new Error(error, "Something went wrong with the database add operation");
   }
   res.render("inventory/add-make", {
