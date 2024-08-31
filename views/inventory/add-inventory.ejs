@@ -1,0 +1,75 @@
+<section class="section" aria-labelledby="add-make-label">
+
+  <% if (errors) { %>
+    <ul class="notice">
+      <% errors.array().forEach(error=> { %>
+        <li>
+          <%= error.msg %>
+        </li>
+        <% }) %>
+    </ul>
+    <% } %>
+
+      <div class="container add-inventory-container">
+        <% if (title) { %>
+          <div class="add-inventory-form">
+            <h1 class="h2 section-title">
+              <%= title %>
+            </h1>
+            <form id="add-inventory-form" action="/inv/add-inventory" method="post">
+              <div class="input-group">
+                <label for="classificationList">Make</label>
+                <%- selectMenu %>
+              </div>
+              <div class="input-group">
+                <label for="make">Make*</label>
+                <input type="text" name="inv_make" id="make" placeholder="Min of 3 characters" minlength="3"
+                  pattern="^[A-Za-z]*$" value="<%- locals.inv_make %>" required>
+              </div>
+              <div class="input-group">
+                <label for="model">Model*</label>
+                <input type="text" name="inv_model" id="model" placeholder="Min of 3 characters" minlength="3" required
+                  value="<%= locals.inv_model %>">
+              </div>
+              <div class="input-group">
+                <label for="description">Description*</label>
+                <textarea id="description" name="inv_description" rows="4" cols="50" required
+                  value="<%= locals.inv_description %>"></textarea>
+              </div>
+              <div class="input-group">
+                <label for="image-path">Image Path</label>
+                <input type="text" id="image-path" name="inv_image"
+                  value="<%= locals.inv_image?? `/images/vehicles/no-image.png` %>">
+              </div>
+              <div class="input-group">
+                <label for="thumbnail-path">Thumbnail Path</label>
+                <input type="text" id="thumbnail-path" name="inv_thumbnail"
+                  value="<%= locals.inv_thumbnail?? `/images/vehicles/no-image.png` %>">
+              </div>
+              <div class="input-group">
+                <label for="price">Price*</label>
+                <input type="number" name="inv_price" id="price" placeholder="Decimal or integer" required
+                  value="<%= locals.inv_price %>">
+              </div>
+              <div class="input-group">
+                <label for="year">Year*</label>
+                <input type="text" name="inv_year" id="year" placeholder="4-digit year" required
+                  value="<%= locals.inv_year %>">
+              </div>
+              <div class="input-group">
+                <label for="miles">Miles*</label>
+                <input type="number" name="inv_miles" id="miles" placeholder="Digits only" pattern="^\d+$" required
+                  value="<%= locals.inv_miles %>">
+              </div>
+              <div class="input-group">
+                <label for="color">Color*</label>
+                <input type="text" name="inv_color" id="color" placeholder="Color" required
+                  value="<%= locals.inv_color %>">
+              </div>
+              <input type="submit" value="Add New Vehicle" class="btn btn-login" />
+            </form>
+          </div>
+          <% } else { res.redirect('/') } %>
+
+      </div>
+</section>

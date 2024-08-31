@@ -3,6 +3,10 @@ const express = require("express");
 const router = new express.Router();
 const invController = require("../controllers/invController");
 const invVehicle = require("../controllers/vehicleController");
+const validate = require("../utilities/addmake-validation");
+const addInvValidation = require("../utilities/addinventory-validation");
+const invModel = require("../models/inventory-model");
+const selectController = require("../controllers/selectController");
 const utilities = require("../utilities");
 
 // Route to build inventory by make view
@@ -19,6 +23,20 @@ router.get("/add-make", utilities.handleErrors(invController.buildAddMakeView));
 // Adding new make process
 router.post(
   "/add-make",
+  validate.makeRules(),
+  validate.checkMakeData,
   utilities.handleErrors(invController.addMakeToDatabase));
+
+// Deliver add inventory view
+// router.get("/add-inventory", utilities.handleErrors(invController.buildAddInventoryView));
+router.get("/add-inventory", utilities.handleErrors(selectController.buildDropDown));
+
+// Adding new vehicle process
+router.post(
+  "/add-inventory",
+  addInvValidation.addInventoryRules(),
+  addInvValidation.checkNewInventoryData,
+  // utilities.handleErrors(invModel.addNewInventoryToDatabase));
+  utilities.handleErrors(selectController.insertInventory));
 
 module.exports = router;
