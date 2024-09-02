@@ -7,6 +7,11 @@ const validate = {}
  * ********************************* */
 validate.addInventoryRules = () => {
   return [
+    body("make_id")
+      .trim()
+      .notEmpty()
+      .escape()
+      .withMessage("Please select a valid car make"),
     // make name is required.
     body("inv_make")
       .trim()
@@ -33,7 +38,7 @@ validate.addInventoryRules = () => {
       .trim()
       .notEmpty()
       .escape()
-      .isLength({ min: 10 })
+      .isLength({ min: 2 })
       .withMessage("A description of the vehicle is required"),
     
     // an image path is required.
@@ -117,16 +122,19 @@ validate.checkNewInventoryData = async (req, res, next) => {
     inv_price,
     inv_year,
     inv_miles,
-    inv_color
+    inv_color,
+    make_id,
   } = req.body;
   let errors = [];
   errors = validationResult(req);
   if (!errors.isEmpty()) { 
     let nav = await utilities.getNav();
+    const selectMenu = await utilities.buildMakeList();
     res.render("inventory/add-inventory", {
       errors,
       title: "Add New Vehicle",
       nav,
+      selectMenu,
       inv_make,
       inv_model,
       inv_description,
@@ -136,6 +144,7 @@ validate.checkNewInventoryData = async (req, res, next) => {
       inv_year,
       inv_miles,
       inv_color,
+      make_id,
     });
     return;
   }

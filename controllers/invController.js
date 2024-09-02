@@ -29,11 +29,11 @@ invCont.buildByMakeId = async function (req, res, next) {
 * *************************************** */
 invCont.buildManagementView = async function (req, res, next) {
   let nav = await utilities.getNav();
-  // const selectMenu = await utilities.buildMakeList();
-  res.render("inventory/management", {
+  const selectMenu = await utilities.buildMakeList();
+  res.render("./inventory/management", {
     title: "Management View",
     nav,
-    // selectMenu,
+    selectMenu,
     errors: null,
   });
 }
@@ -52,15 +52,15 @@ invCont.buildAddMakeView = async function (req, res, next) {
 }
 
 /* ****************************************
-*  Deliver add make view
+*  Deliver inventory view
 * *************************************** */
 invCont.buildAddInventoryView = async function (req, res, next) {
   let nav = await utilities.getNav();
-  // const selectMenu = await utilities.buildMakeList();
+  const selectMenu = await utilities.buildMakeList();
   res.render("inventory/add-inventory", {
     title: "Add New Vehicle",
     nav,
-    // selectMenu,
+    selectMenu,
     errors: null,
   });
 }

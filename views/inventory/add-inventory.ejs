@@ -18,13 +18,13 @@
             </h1>
             <form id="add-inventory-form" action="/inv/add-inventory" method="post">
               <div class="input-group">
-                <label for="classificationList">Make</label>
+                <label for="makeList">Make</label>
                 <%- selectMenu %>
               </div>
               <div class="input-group">
                 <label for="make">Make*</label>
                 <input type="text" name="inv_make" id="make" placeholder="Min of 3 characters" minlength="3"
-                  pattern="^[A-Za-z]*$" value="<%- locals.inv_make %>" required>
+                  pattern="^[A-Za-z]*$" value="<%# locals.inv_make %>" required>
               </div>
               <div class="input-group">
                 <label for="model">Model*</label>
