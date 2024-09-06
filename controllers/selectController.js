@@ -27,7 +27,7 @@ const insertInventory = async (req, res) => {
     inv_color,
     make_id,
   } = req.body;
-  const result = await invModel.insertInventory(
+  const result = await invModel.addNewInventoryToDatabase(
     inv_make,
     inv_model,
     inv_description,

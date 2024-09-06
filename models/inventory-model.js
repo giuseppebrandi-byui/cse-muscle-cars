@@ -43,7 +43,7 @@ async function addMakeToDatabase(make_name) {
 }
 
 /* ***************************
- *  Insert new make into database
+ *  Insert new vehicle into database
  * ************************** */
 async function addNewInventoryToDatabase(
     inv_make,
@@ -54,7 +54,9 @@ async function addNewInventoryToDatabase(
     inv_price,
     inv_year,
     inv_miles,
-    inv_color) { 
+    inv_color,
+    make_id,
+) { 
   try {
     const data = await pool.query(
       `INSERT INTO public.inventory(
@@ -66,8 +68,9 @@ async function addNewInventoryToDatabase(
         inv_price,
         inv_year,
         inv_miles,
-        inv_color) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *`,
-      [inv_make, inv_model, inv_description, inv_image, inv_thumbnail, inv_price, inv_year, inv_miles, inv_color]
+        inv_color,
+        make_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *`,
+      [inv_make, inv_model, inv_description, inv_image, inv_thumbnail, inv_price, inv_year, inv_miles, inv_color, make_id]
     )
     return data.rows
   } catch (error) { 
