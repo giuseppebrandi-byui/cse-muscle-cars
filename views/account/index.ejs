@@ -1,0 +1,30 @@
+<section class="section account-management" aria-labelledby="acc-man-view-label">
+  <%- messages() %>
+
+    <% if (errors) { %>
+      <ul class="notice">
+        <% errors.array().forEach(error=> { %>
+          <li>
+            <%= error.msg %>
+          </li>
+          <% }) %>
+      </ul>
+      <% } %>
+
+        <div class="container account-management-container">
+          <% if (title) { %>
+            <div class="btn-box">
+
+              <h1 class="h2 section-title">
+                <%= title %>
+              </h1>
+
+              <p>You're logged in</p>
+
+            </div>
+
+            <% } else { res.redirect('/') } %>
+        </div>
+
+
+</section>
