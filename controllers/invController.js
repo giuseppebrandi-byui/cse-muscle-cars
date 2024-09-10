@@ -31,10 +31,10 @@ invCont.buildManagementView = async function (req, res, next) {
   let nav = await utilities.getNav();
   const selectMenu = await utilities.buildMakeList();
   res.render("./inventory/management", {
-    title: "Management View",
+    title: "Vehicle Management",
     nav,
-    selectMenu,
     errors: null,
+    selectMenu,
   });
 }
 
@@ -60,8 +60,8 @@ invCont.buildAddInventoryView = async function (req, res, next) {
   res.render("inventory/add-inventory", {
     title: "Add New Vehicle",
     nav,
-    selectMenu,
     errors: null,
+    selectMenu,
   });
 }
 
@@ -83,6 +83,20 @@ invCont.addMakeToDatabase = async function (req, res) {
     errors: null,
     messagesAddMake: `Congratulations, you have added ${make_name} to the database.`
   })
+}
+
+
+/* ***************************
+ *  Return Inventory by Make As JSON
+ * ************************** */
+invCont.getInventoryJSON = async (req, res, next) => {
+  const make_id = parseInt(req.params.make_id)
+  const invData = await invModel.getInventoryByMakeId(make_id)
+  if (invData[0].inv_id) {
+    return res.json(invData)
+  } else {
+    next(new Error("No data returned"))
+  }
 }
 
 module.exports = invCont;

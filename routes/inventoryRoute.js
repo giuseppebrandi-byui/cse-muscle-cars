@@ -5,7 +5,6 @@ const invController = require("../controllers/invController");
 const invVehicle = require("../controllers/vehicleController");
 const validate = require("../utilities/addmake-validation");
 const addInvValidation = require("../utilities/addinventory-validation");
-const invModel = require("../models/inventory-model");
 const selectController = require("../controllers/selectController");
 const utilities = require("../utilities");
 
@@ -15,7 +14,7 @@ router.get("/type/:makeId", utilities.handleErrors(invController.buildByMakeId))
 router.get("/detail/:carModelId", utilities.handleErrors(invVehicle.buildSingleVehicle));
 
 // Deliver management view
-router.get("/management", utilities.handleErrors(invController.buildManagementView));
+router.get("/", utilities.handleErrors(invController.buildManagementView));
 
 // Deliver add make view
 router.get("/add-make", utilities.handleErrors(invController.buildAddMakeView));
@@ -28,7 +27,6 @@ router.post(
   utilities.handleErrors(invController.addMakeToDatabase));
 
 // Deliver add inventory view
-// router.get("/add-inventory", utilities.handleErrors(invController.buildAddInventoryView));
 router.get("/add-inventory", utilities.handleErrors(selectController.buildDropDown));
 
 // Adding new vehicle process
@@ -36,7 +34,9 @@ router.post(
   "/add-inventory",
   addInvValidation.addInventoryRules(),
   addInvValidation.checkNewInventoryData,
-  // utilities.handleErrors(invModel.addNewInventoryToDatabase));
   utilities.handleErrors(selectController.insertInventory));
+
+
+  router.get("/getInventory/:make_id", utilities.handleErrors(invController.getInventoryJSON));
 
 module.exports = router;
