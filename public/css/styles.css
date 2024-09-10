@@ -964,6 +964,33 @@ body {
 }
 
 /*-----------------------------------*\
+  #TABLE VEHICLE MANAGEMENT
+\*-----------------------------------*/
+#inventoryDisplay {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#inventoryDisplay td, #inventoryDisplay th {
+  border: none;
+  padding: 8px;
+}
+
+#inventoryDisplay th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+}
+
+#inventoryDisplay tr {
+  text-align: left;
+}
+
+.select-instr {
+  margin-bottom: 2rem;
+}
+
+/*-----------------------------------*\
   #MEDIA QUERIES
 \*-----------------------------------*/
 @media (min-width: 575px) {
