@@ -36,7 +36,10 @@ router.post(
   addInvValidation.checkNewInventoryData,
   utilities.handleErrors(selectController.insertInventory));
 
+// Deliver inventory view depending on make selection 
+router.get("/getInventory/:make_id", utilities.handleErrors(invController.getInventoryJSON));
 
-  router.get("/getInventory/:make_id", utilities.handleErrors(invController.getInventoryJSON));
+// Deliver edit inventory view
+router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventoryView));
 
 module.exports = router;

@@ -861,6 +861,7 @@ body {
 .register-container,
 .add-make-container,
 .add-inventory-container,
+.edit-inventory-container,
 .btn-box-container,
 .account-management-container {
   position: relative;
@@ -875,6 +876,7 @@ body {
 .register-form,
 .add-make-form,
 .add-inventory-form,
+.edit-inventory-form,
 .btn-box {
   padding: 40px;
   border-radius: 15px;
@@ -892,7 +894,8 @@ body {
 .login-form h1,
 .register-form h1,
 .add-make-form h1,
-.add-inventory-form h1 {
+.add-inventory-form h1,
+.edit-inventory-form h1 {
   margin-bottom: 30px;
 }
 
@@ -928,6 +931,8 @@ body {
 }
 
 .btn-login,
+.btn-edit,
+.btn-addInv,
 .btn-register {
   margin: 30px 0;
   display: initial;
