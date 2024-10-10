@@ -1,0 +1,57 @@
+<section class="section" aria-labelledby="delete-label">
+
+  <% if (errors) { %>
+    <ul class="notice">
+      <% errors.array().forEach(error=> { %>
+        <li>
+          <%= error.msg %>
+        </li>
+        <% }) %>
+    </ul>
+    <% } %>
+
+      <div class="container edit-inventory-container">
+        <% if (title) { %>
+          <div class="edit-inventory-form">
+            <h1 class="h2 section-title">
+              <%= title %>
+            </h1>
+            <% } else { res.redirect('/') } %>
+              <%- messages() %>
+
+                <form id="delete-inventory-form" action="/inv/delete" method="post">
+
+                  <div class="input-group">
+                    <input type="hidden" name="inv_id" id="invId" value="" <% if(locals.inv_id) { %> value="<%=
+                      locals.inv_id %>" <% } %>>
+                  </div>
+
+                  <div class="input-group">
+                    <label for="model">Model</label>
+                    <input type="text" name="inv_model" id="model" value="<%= locals.inv_model %>" disabled>
+                  </div>
+
+                  <div class="input-group">
+                    <label for="price">Price</label>
+                    <input type="number" name="inv_price" id="price" value="<%= locals.inv_price %>" disabled>
+                  </div>
+
+                  <div class="input-group">
+                    <label for="year">Year</label>
+                    <input type="text" name="inv_year" id="year" value="<%= locals.inv_year %>" disabled>
+                  </div>
+
+                  <div class="input-group">
+                    <label for="color">Color</label>
+                    <input type="text" name="inv_color" id="color" value="<%= locals.inv_color %>" disabled>
+                  </div>
+                  <input type="submit" value="Delete Vehicle" class="btn btn-edit" />
+                </form>
+          </div>
+
+      </div>
+</section>
+
+<script>
+  document.getElementById("invId").value = window.location.pathname.split("/")[3];
+</script>

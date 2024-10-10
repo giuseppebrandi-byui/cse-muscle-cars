@@ -42,11 +42,19 @@ router.get("/getInventory/:make_id", utilities.handleErrors(invController.getInv
 // Deliver edit inventory view
 router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventoryView));
 
-// Adding new vehicle process
+// Edit vehicle process
 router.post(
   "/update",
   addInvValidation.addInventoryRules(),
   addInvValidation.checkUpdateInventoryData,
   utilities.handleErrors(selectController.editInventory));
+
+// Deliver edit inventory view
+router.get("/delete/:inv_id", utilities.handleErrors(invController.deleteInventoryView));
+
+// Delete vehicle process
+router.post(
+  "/delete",
+  utilities.handleErrors(selectController.deleteInventory));
 
 module.exports = router;

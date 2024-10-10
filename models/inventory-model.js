@@ -107,6 +107,24 @@ async function editInventoryToDatabase(
   }
 }
 
+/* ***************************
+ *  Delete vehicle from database
+ * ************************** */
+async function deleteInventoryFromDatabase(
+    inv_id,
+) { 
+  try {
+    console.log("Testing Deletion", inv_id);
+    await pool.query(
+      `DELETE FROM inventory WHERE inv_id = $1`,
+      [inv_id]
+    )
+  } catch (error) { 
+    console.error("getDeleteInventory error " + error)
+    throw new Error(error)
+  }
+}
+
 
 /* ***************************
  *  Get all inventory items and make_name by inv_year
@@ -139,4 +157,4 @@ async function checkExistingMakeName(make_name) {
 }
 
 
-module.exports = {getMakes, getInventoryByMakeId, getNewestInventoryByYear, addMakeToDatabase, checkExistingMakeName, addNewInventoryToDatabase, editInventoryToDatabase}
+module.exports = {getMakes, getInventoryByMakeId, getNewestInventoryByYear, addMakeToDatabase, checkExistingMakeName, addNewInventoryToDatabase, editInventoryToDatabase, deleteInventoryFromDatabase}
