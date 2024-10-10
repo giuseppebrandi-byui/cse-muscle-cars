@@ -42,4 +42,11 @@ router.get("/getInventory/:make_id", utilities.handleErrors(invController.getInv
 // Deliver edit inventory view
 router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventoryView));
 
+// Adding new vehicle process
+router.post(
+  "/update",
+  addInvValidation.addInventoryRules(),
+  addInvValidation.checkUpdateInventoryData,
+  utilities.handleErrors(selectController.editInventory));
+
 module.exports = router;

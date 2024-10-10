@@ -61,4 +61,70 @@ const insertInventory = async (req, res) => {
   }
 }
 
-module.exports = { insertInventory, buildDropDown };
+const editInventory = async (req, res) => { 
+  let nav = await utilities.getNav();
+  const selectMenu = await utilities.buildMakeList();
+  const {
+    inv_make,
+    inv_model,
+    inv_description,
+    inv_image,
+    inv_thumbnail,
+    inv_price,
+    inv_year,
+    inv_miles,
+    inv_color,
+    make_id,
+    inv_id,
+  } = req.body;
+  
+  const result = await invModel.editInventoryToDatabase(
+    inv_make,
+    inv_model,
+    inv_description,
+    inv_image,
+    inv_thumbnail,
+    inv_price,
+    inv_year,
+    inv_miles,
+    inv_color,
+    make_id,
+    inv_id,
+  );
+  // All INFORMATION FROM INVCONTROLLER
+  if (result) {
+    req.flash(
+      "notice",
+      `Congratulations, you have edited ${inv_make} ${inv_model}.`
+    );
+    let nav = await utilities.getNav();
+    const selectMenu = await utilities.buildMakeList();
+    res.status(201).render("./inventory/edit-inventory", {
+      title: "Edit " + inv_model,
+      nav,
+      selectMenu: selectMenu,
+      errors: null,
+      inv_id,
+      inv_make,
+      inv_model,
+      inv_year,
+      inv_description,
+      inv_image,
+      inv_thumbnail,
+      inv_price,
+      inv_miles,
+      inv_color,
+      make_id,
+    });
+  } else {
+    req.flash("notice", "Sorry, the insertion failed.");
+    res.status(500).render("inventory/add-inventory", {
+      title: "Add New Inventory",
+      nav,
+      selectMenu,
+      errors: null,
+    });
+  }
+}
+
+module.exports = { insertInventory, buildDropDown, editInventory };
