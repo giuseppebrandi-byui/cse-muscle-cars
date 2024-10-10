@@ -128,4 +128,28 @@ invCont.editInventoryView = async function (req, res, next) {
   })
 }
 
+
+/* ***************************
+ *  Delete inventory view
+ * ************************** */
+invCont.deleteInventoryView = async function (req, res, next) {
+  const inv_id = parseInt(req.params.inv_id)
+  let nav = await utilities.getNav()
+  const itemData = await vehicleModel.getVehicleById(inv_id)
+  const itemName = `${itemData.inv_make} ${itemData.inv_model}`
+  res.render("./inventory/delete-inventory", {
+    title: "Delete " + itemName,
+    nav,
+    errors: null,
+    inv_id: itemData.inv_id,
+    inv_model: itemData.inv_model,
+    inv_year: itemData.inv_year,
+    inv_price: itemData.inv_price,
+    inv_color: itemData.inv_color,
+    make_id: itemData.make_id
+  })
+}
+
+
+
 module.exports = invCont;

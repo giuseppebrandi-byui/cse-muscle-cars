@@ -60,7 +60,7 @@ validate.addInventoryRules = () => {
       .trim()
       .notEmpty()
       .escape()
-      .isLength({ min: 2 })
+      .isLength({ min: 4 })
       .withMessage("Please provide a valid price")
       .custom(async (inv_price) => {
          if (!inv_price.match(/^\d+$/)) {
@@ -146,6 +146,52 @@ validate.checkNewInventoryData = async (req, res, next) => {
       inv_color,
       make_id,
     });
+    return;
+  }
+  next();
+}
+
+
+/*  **********************************
+ *  Check edit vehicle data
+ * ********************************* */
+validate.checkUpdateInventoryData = async (req, res, next) => { 
+  const {
+    inv_make,
+    inv_model,
+    inv_description,
+    inv_image,
+    inv_thumbnail,
+    inv_price,
+    inv_year,
+    inv_miles,
+    inv_color,
+    make_id,
+    inv_id,
+  } = req.body;
+  let errors = [];
+  errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    console.log("errors", errors);
+    let nav = await utilities.getNav();
+    const selectMenu = await utilities.buildMakeList();
+    res.render("./inventory/edit-inventory", {
+    title: "Edit " + inv_model,
+    nav,
+    selectMenu: selectMenu,
+    errors: null,
+    inv_id,
+    inv_make,
+    inv_model,
+    inv_year,
+    inv_description,
+    inv_image,
+    inv_thumbnail,
+    inv_price,
+    inv_miles,
+    inv_color,
+    make_id,
+  })
     return;
   }
   next();

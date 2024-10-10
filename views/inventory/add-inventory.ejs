@@ -75,3 +75,11 @@
 
       </div>
 </section>
+
+<script>
+  document.getElementById("make").value = document.getElementById('makeList').options[document.getElementById('makeList').selectedIndex].text;
+
+  document.getElementById("makeList").onchange = (event) => {
+    document.getElementById("make").value = document.getElementById('makeList').options[document.getElementById('makeList').selectedIndex].text;
+  }
+</script>
